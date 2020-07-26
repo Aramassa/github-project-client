@@ -32,33 +32,12 @@ describe("GithubApi", function() {
         let issue: any = await apiTest1.getRepoIssueList();
     });
 
-    // it('update issue', async function(){
-    //     this.timeout(5000);
-    //     const issueNumber:number = 3;
+    test('update issue', async function(){
+        const issueNumber:number = 3;
 
-    //     let issue: any = await apiTest1.getIssue(issueNumber);
-    //     await apiTest1.editIssue(issueNumber, {
-    //         title: DueStamp.modify(issue.title, '2020.3.25')
-    //     });
-    // });
-
-    // it('remove issue due', async function(){
-    //     this.timeout(5000);
-    //     const issueNumber:number = 3;
-
-    //     let issue: any = await apiTest1.getIssue(issueNumber);
-    //     await apiTest1.editIssue(issueNumber, {
-    //         title: DueStamp.remove(issue.title)
-    //     });
-    // });
-
-    // it('increment issue due', async function(){
-    //     this.timeout(5000);
-    //     const issueNumber:number = 2;
-
-    //     let issue: any = await apiTest1.getIssue(issueNumber);
-    //     await apiTest1.editIssue(issueNumber, {
-    //         title: DueStamp.calculate(issue.title, 10, 'day')
-    //     });
-    // });
+        let issue: any = await apiTest1.getIssue(issueNumber);
+        await apiTest1.editIssue(issueNumber, {
+            title: issue.title + ' 2020.7.26'
+        });
+    });
 });
