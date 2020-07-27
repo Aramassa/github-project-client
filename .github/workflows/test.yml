@@ -5,6 +5,19 @@ jobs:
     name: Simple Test
     runs-on: ubuntu-latest
     steps:
-      - name: 
+      - uses: actions/checkout@v1
+      - name: Cache bundler modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('./package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - name: Prepare Jest
         run: |
-          echo Hello there!
+          npm install
+      - name: Run Jest
+        run: |
+          npm t
+    
+    
