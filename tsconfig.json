@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
+    "target": "esnext",
     "module": "commonjs",
-    "target": "es2015",
+    "declaration": true,
     "allowJs": true,
     "noImplicitAny": true,
+    "newLine": "lf",
     "removeComments": true,
     "preserveConstEnums": true,
     "experimentalDecorators": true,
     "sourceMap": false,
-    "rootDir": "./src/",
-    "outDir": "./dist"
+    "outDir": "./dist/"
   },
   "include" : [
     "./**/*"
