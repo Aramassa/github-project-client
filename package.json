@@ -1,5 +1,5 @@
 {
-  "name": "github-project-client",
+  "name": "@Aramassa/github-project-client",
   "version": "1.0.0",
   "description": "github project client for nodejs",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/Aramassa/github-project-client.git"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/Aramassa/"
+    "registry":"https://npm.pkg.github.com/"
   },
   "author": "Aramassa",
   "license": "MIT",
