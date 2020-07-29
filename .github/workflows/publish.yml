@@ -9,6 +9,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         registry-url: 'https://npm.pkg.github.com'
+        scope: '@Aramassa'
     - run: npm install
     - run: npm publish
       env:

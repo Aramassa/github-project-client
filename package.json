@@ -16,6 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/Aramassa/github-project-client.git"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
+  },
   "author": "Aramassa",
   "license": "MIT",
   "bugs": {
