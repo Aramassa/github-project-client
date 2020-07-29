@@ -1,7 +1,5 @@
-name: Node.js Package
-on:
-  release:
-    types: [created]
+name: Publis npm package to GPR.
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,9 +8,7 @@ jobs:
     # npmに公開する.npmrcファイルをセットアップ
     - uses: actions/setup-node@v1
       with:
-        node-version: '12'
-        registry-url: 'https://npm.pkg.github.com/Aramassa'
-        scope: '@octocat'
+        registry-url: 'https://npm.pkg.github.com'
     - run: npm install
     - run: npm publish
       env:
