@@ -1,5 +1,7 @@
 name: Publis npm package to GPR.
-on: push
+on:
+  release:
+    types: [created]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,7 +11,6 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         registry-url: 'https://npm.pkg.github.com'
-        scope: '@Aramassa'
     - run: npm install
     - run: npm publish
       env:
