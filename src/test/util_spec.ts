@@ -1,5 +1,5 @@
-import {DueStamp} from "../lib/util/DueStamp";
-import { GithubIssue } from "../../dist/lib/github/GithubIssue";
+import DueStamp from "../lib/util/DueStamp";
+import { GithubIssue } from "../lib/github/GithubIssue";
 
 describe("util", ()=>{
   describe("DueStamp", ()=>{
@@ -21,5 +21,37 @@ describe("util", ()=>{
       expect(DueStamp.remove(title)).toEqual("test");
     });
 
+    test('modify issue due', ()=>{
+      let i: GithubIssue = new GithubIssue();
+      i.title = "test";
+
+      i.due.modify('2020.03.25');
+      expect(i.title).toEqual('test DUE:(2020.03.25)');
+
+      i.due.modify('2020.03.28');
+      expect(i.title).toEqual('test DUE:(2020.03.28)');
+    });
+
+    test('remove issue due', ()=>{
+      let i: GithubIssue = new GithubIssue();
+      i.title = "test";
+
+      i.due.modify('2020.03.25');
+      expect(i.title).toEqual('test DUE:(2020.03.25)');
+
+      i.due.remove();
+      expect(i.title).toEqual('test');
+    });
+
+    test('culculate issue due', ()=>{
+      let i: GithubIssue = new GithubIssue();
+      i.title = "test";
+
+      i.due.modify('2020.03.25');
+      expect(i.title).toEqual('test DUE:(2020.03.25)');
+
+      i.due.calculate(10, 'day');
+      expect(i.title).toEqual('test DUE:(2020.1.11)');
+    });
   });
 })

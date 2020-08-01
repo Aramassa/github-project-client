@@ -1,6 +1,8 @@
+import { GithubIssue } from "../github/GithubIssue";
+
 const dayjs = require('dayjs');
 
-export class DueStamp{
+export default class DueStamp{
 
     /**
      * 
@@ -54,5 +56,24 @@ export class DueStamp{
             res.push(dayjs(from).add(i, 'day').format('YYYY.M.D'));
         }
         return res;
+    }
+}
+
+export class Modifyer{
+    issue: GithubIssue;
+    constructor(issue: GithubIssue){
+        this.issue = issue;
+    }
+
+    modify(to: string){
+        this.issue.title = DueStamp.modify(this.issue.title, to);
+    }
+
+    calculate(number: number, unit: string){
+        this.issue.title = DueStamp.calculate(this.issue.title, number, unit);
+    }
+
+    remove(){
+        this.issue.title = DueStamp.remove(this.issue.title);
     }
 }
